@@ -1,0 +1,5 @@
+# High school projects
+This repository is meant to share "mini" projects that would help high-school students to integrate these pieces in their final projects.
+
+## Webspeech
+This project demonestarte Speech to text based on the web speech recognition entity.
