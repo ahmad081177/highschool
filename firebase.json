@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "public",
+    "site": "voice2text",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
