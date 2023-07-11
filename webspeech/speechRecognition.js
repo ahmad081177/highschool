@@ -55,6 +55,16 @@ if ("webkitSpeechRecognition" in window) {
     // Stop the Speech Recognition
     speechRecognition.stop();
   };
+  document.querySelector("#clear").onclick = () => {
+    // clear the Speech Recognition
+    final_transcript = "";
+    interim_transcript = "";
+    document.querySelector("#final").innerHTML = "";
+  };
+  document.querySelector("#copy").onclick = () => {
+    // copy the Speech Recognition
+    navigator.clipboard.writeText(final_transcript);
+  };
 } else {
   console.log("Speech Recognition Not Available");
 }
