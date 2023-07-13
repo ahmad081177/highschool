@@ -1,7 +1,8 @@
 if ("webkitSpeechRecognition" in window) {
   // Initialize webkitSpeechRecognition
   let speechRecognition = new webkitSpeechRecognition();
-
+  let isNewLine = false;
+  let l2r = true; //left 2 right
   // String for the Final Transcript
   let final_transcript = "";
 
@@ -38,6 +39,7 @@ if ("webkitSpeechRecognition" in window) {
       }
     }
 
+    if(isNewLine) { isNewLine = false; final_transcript += "<br/>"; }
     // Set the Final transcript and Interim transcript.
     document.querySelector("#final").innerHTML = final_transcript;
     document.querySelector("#interim").innerHTML = interim_transcript;
@@ -61,9 +63,26 @@ if ("webkitSpeechRecognition" in window) {
     interim_transcript = "";
     document.querySelector("#final").innerHTML = "";
   };
+  document.querySelector("#new-line").onclick = () => {
+    isNewLine = true;
+  };
+  document.querySelector("#left2right").onclick = () => {
+      l2r = !l2r;
+      if(l2r){
+          document.querySelector("#left2right").innerHTML = "Right 2 Left";
+          document.querySelector("#transcript").classList.remove("text-start");
+          document.querySelector("#transcript").classList.add("text-end");
+      }
+      else{
+          document.querySelector("#left2right").innerHTML = "Left 2 Right";
+          document.querySelector("#transcript").classList.remove("text-end");
+          document.querySelector("#transcript").classList.add("text-start");
+      }    
+  };
   document.querySelector("#copy").onclick = () => {
     // copy the Speech Recognition
-    navigator.clipboard.writeText(final_transcript);
+    let txt = final_transcript.replaceAll("<br/>","\n");
+    navigator.clipboard.writeText(txt);
   };
 } else {
   console.log("Speech Recognition Not Available");

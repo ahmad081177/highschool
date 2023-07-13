@@ -19,16 +19,25 @@
     </div>
     <h2 class="mt-4 text-primary">Transcript</h2>
     <div id="transcript" class="p-3" style="border: 1px solid gray; height: 300px; border-radius: 8px;">
-      <span id="final" class="text-info"></span>
+      <span id="final" class="text-info" style="display: block"></span>
       <span id="interim" class="text-secondary"></span>
     </div>
+    <div id="buttons" style="display: flex;justify-content: space-between;" class="mt-4" >
+      <span>
+          <button class="btn btn-success" id="start">Start</button>
+          <button class="btn btn-danger" id="stop">Stop</button>      
+          <span>&nbsp;&nbsp;</span>
+      </span>
+      
+      <span>
+          <button id="left2right" class="btn btn-sm btn-outline-secondary">Left 2 Right</button>
+          <button id="new-line" class="btn btn-sm btn-outline-secondary">New Line</button>
+          <span>&nbsp;&nbsp;</span>
+          <button class="btn btn-sm btn-outline-secondary" id="copy">Copy</button>
+          <button class="btn btn-sm btn-outline-secondary" id="clear">Clear</button>
+      </span>
+    </div>
     <div class="mt-4">
-      <button class="btn btn-success" id="start">Start</button>
-      <button class="btn btn-danger" id="stop">Stop</button>
-      <span>&nbsp;&nbsp;</span>
-      <button class="btn btn-secondary" id="copy">Copy</button>
-      <span>&nbsp;&nbsp;</span>
-      <button class="btn btn-secondary" id="clear">Clear</button>
       <p id="status" class="lead mt-3 text-light" style="display: none">Listenting ...</p>
     </div>
   </body>

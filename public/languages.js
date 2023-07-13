@@ -8,7 +8,6 @@ var langs =
                      ['en-US', 'United States']],
  ['Arabic',         ['ar-DZ' , 'جزائر'],
                     ['ar-EG' , 'مصر'],
-                    ['ar-IL' , 'اسرائيل'],
                     ['ar-PS' , 'فلسطين'],
                     ['ar-JO' , 'أردن'],
                     ['ar-LB' , 'لبنان'],
