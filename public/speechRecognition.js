@@ -1,8 +1,9 @@
-if ("webkitSpeechRecognition" in window) {
+ if ("webkitSpeechRecognition" in window) {
   // Initialize webkitSpeechRecognition
   let speechRecognition = new webkitSpeechRecognition();
   let isNewLine = false;
   let l2r = true; //left 2 right
+  let isStarted = false;
   // String for the Final Transcript
   let final_transcript = "";
 
@@ -47,15 +48,25 @@ if ("webkitSpeechRecognition" in window) {
 
   // Set the onClick property of the start button
   document.querySelector("#start").onclick = () => {
-    //reset the lang
-    speechRecognition.lang = document.querySelector("#select_dialect").value;
-    // Start the Speech Recognition
-    speechRecognition.start();
+      if(!isStarted){
+        //reset the lang
+        speechRecognition.lang = document.querySelector("#select_dialect").value;
+        // Start the Speech Recognition
+        speechRecognition.start();
+        document.querySelector("#start").disabled = true;
+        document.querySelector("#stop").disabled = false;
+        isStarted = true;
+      }
   };
   // Set the onClick property of the stop button
   document.querySelector("#stop").onclick = () => {
-    // Stop the Speech Recognition
-    speechRecognition.stop();
+      if(isStarted){
+        // Stop the Speech Recognition
+        speechRecognition.stop();
+        document.querySelector("#start").disabled = false;
+        document.querySelector("#stop").disabled = true;
+        isStarted = false;
+      }
   };
   document.querySelector("#clear").onclick = () => {
     // clear the Speech Recognition
@@ -69,14 +80,14 @@ if ("webkitSpeechRecognition" in window) {
   document.querySelector("#left2right").onclick = () => {
       l2r = !l2r;
       if(l2r){
-          document.querySelector("#left2right").innerHTML = "Right 2 Left";
-          document.querySelector("#transcript").classList.remove("text-start");
-          document.querySelector("#transcript").classList.add("text-end");
+        document.querySelector("#left2right").innerHTML = "Left 2 Right";
+        document.querySelector("#transcript").classList.remove("text-end");
+        document.querySelector("#transcript").classList.add("text-start");
       }
       else{
-          document.querySelector("#left2right").innerHTML = "Left 2 Right";
-          document.querySelector("#transcript").classList.remove("text-end");
-          document.querySelector("#transcript").classList.add("text-start");
+        document.querySelector("#left2right").innerHTML = "Right 2 Left";
+        document.querySelector("#transcript").classList.remove("text-start");
+        document.querySelector("#transcript").classList.add("text-end");
       }    
   };
   document.querySelector("#copy").onclick = () => {
