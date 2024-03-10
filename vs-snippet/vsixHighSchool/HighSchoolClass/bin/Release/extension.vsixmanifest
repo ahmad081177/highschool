@@ -1,0 +1,20 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="HighSchoolClass.7591c91c-93f7-46d1-954f-28a527fd3c5b" Version="1.0" Language="en-US" Publisher="Siemens Digital Industries Software" />
+    <DisplayName>HighSchoolClass</DisplayName>
+    <Description xml:space="preserve">C# Class meant for high school....private attributes with GetZZZ and SetZZZ for each attribute...C# Class for </Description>
+    <Icon>Resources\Icon.png</Icon>
+    <PreviewImage>Resources\Icon2.png</PreviewImage>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="HighSchoolClass.pkgdef" />
+  </Assets>
+</PackageManifest>
